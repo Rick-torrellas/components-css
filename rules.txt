@@ -1,0 +1,17 @@
+# components
+
+* Los components se claficaran por tipo, dentro de carpetas, ejemplo Button, Cards, etc.
+* Cada elemento de un componente solo ocupara un archivo, por ejemplo Button/Alert.scss.
+    * Dentro de Alert se guardara un mixin con el estilo mas basico del componente, para crear las modificiaciones del elemento.
+    * Tambien se guarada todos los modificadores del elemento y los elementos anidados.
+
+## Rules
+
+* _ Modificador
+* __ Pertenece
+
+## Mods
+
+* Se van a crear modificadores standar como las que tiene bootstrap, danger,succes, etc. Estos van a ser tanto modificadores globales, basados en los modificadores globales absolutos y tambien cada elemento va a tener su porpio modificador standar.
+
+* Para implementar los Mods, se me ocurre usar paquetes npm separados, para que puedan ser usado tanto por el paquete central, como para los individuales tipo button, cards, etc.

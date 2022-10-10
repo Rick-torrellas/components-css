@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use './../variables' as vars;
+@use './../mods';
+
+@mixin Button ($border: none, $color: map.get(vars.$RGB, "White"), $padding: 14px 28px, $font-size: 16px, $cursor: pointer) {
+    border: $border;
+    color: $color;
+    padding: $padding;
+    font-size: $font-size;
+    cursor: $cursor;
+}
+
+@mixin Button_Rounded($text-align: center,$outline: none,$background-color: map.get(vars.$RGB,"SeaGreen")) {
+    @include Button($padding: 15px 25px, $font-size: 24px);
+    @include mods.rounded_($border: false);
+    text-align: $text-align;
+    outline: $outline;
+    background-color: $background-color;
+}
+
+@mixin Button_Shadow_Animated {
+    @include Button;
+    @include mods.shadow_animated_($box-shadow-active: 4px 4px #666, $box-shadow: 0 7px gray);
+}
+
+@mixin Button_Rounded_Shadow_Animated {
+    @include Button_Rounded;
+    @include mods.shadow_animated_;
+}
+

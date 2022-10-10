@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass -s compressed ./src/scss/components-css.scss ./dist/css/components-css.min.css && sass ./src/scss/components-css.scss ./dist/css/components-css.css",
+    "watch": "sass -w ./src/scss/components-css.scss ./dist/css/components-css.css"
   },
   "keywords": [],
   "author": "",

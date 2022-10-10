@@ -1,0 +1,47 @@
+// redondea los bordes de un elemento
+@mixin rounded_( $border: none, $border-radius: 15px) {
+    @if $border != true {
+        border: $border;
+    }
+    @if $border-radius != false {
+        border-radius: $border-radius;
+    }
+}
+// cambiar el color de fondo con hover
+@mixin bgc_hover($background-color_: true , $background-color: white) {
+    @if $background-color_ == true { 
+    &:hover {
+        background-color: $background-color;
+    }
+  }
+}
+// agrega sombras a un elemento.
+@mixin shadow_( $box-shadow: 0 9px #999) {
+    @if $box-shadow != false {
+        box-shadow: $box-shadow;
+    }
+    
+}
+// Agrega un efecto de animacion usando las sombras, parece un boton 3D.
+// ! Solo se puede aplicar en elementos que ya tengan una sombra definida.
+@mixin shadow_animated_( $background-color-hover: #3e8e41 , $background-color-active: #3e8e41, $box-shadow-active: 0 5px #666, $transform: translateY(4px) , $box-shadow: 0 7px gray) {
+    @include shadow_($box-shadow);
+    @if $background-color-hover != false {
+        &:hover {
+            background-color: $background-color-hover;
+        }
+    }
+    @if $background-color-active != false or $box-shadow-active != false or $transform != false {
+    &:active {
+        @if $background-color-active != false {
+            background-color: $background-color-active;
+        }
+        @if $box-shadow-active != false {
+            box-shadow: $box-shadow-active;
+        }
+        @if $transform != false {
+            transform: $transform;
+        }
+        }
+    }
+}

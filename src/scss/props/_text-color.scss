@@ -1,0 +1,15 @@
+@use './../util' as vars;
+.text-inherit {
+    color: inherit;
+}
+.text-current {
+    color: currentColor;
+}
+.text-transparent {
+    color: transparent;
+}
+@each $name,$value in vars.$RGB {
+    .text-#{$name} {
+        color: $value;
+    }
+}
