@@ -1,0 +1,6 @@
+//Verficia si una propiedad va a ser usada.
+@mixin check_prop($prop,$value) {
+    @if $value != false {
+        #{$prop}: $value;
+    }
+}

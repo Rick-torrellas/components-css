@@ -1,0 +1,27 @@
+@use 'primary';
+@use 'states';
+// Agrega un efecto de animacion usando las sombras y el movimiento, tambien cambia el color de fondo en el estado activo.
+// TODO: como se esta cambiando de color el fondo en hover y active, lo mejor seria cambiar el color de las letras tambien.
+// TODO: implentar las funciones de states.
+@mixin shadow_animated_bgc_( $background-color-hover , $background-color-active, $box-shadow-active, $transform , $box-shadow) {
+    @include primary.shadow-animated_($box-shadow-active: $box-shadow-active, $transform: $transform , $box-shadow: $box-shadow);
+    @if $background-color-hover != false {
+        &:hover {
+            background-color: $background-color-hover;
+        }
+    }
+    @if $background-color-active != false {
+        &:active {
+            background-color: $background-color-active;
+        }
+    }
+}
+
+// Crea un elemento que ocupa todo el ancho disponible y cambia el color de fondo con hover.
+
+// block_bgch_($display, $width, $text-align,$background-color-hover,$background-color);
+// block_bgch_($display: $display, $width:$width, $text-align: $text-align,$background-color-hover: $background-color-hover,$background-color: $background-color)
+@mixin block_bgch_($display, $width, $text-align,$background-color-hover,$background-color) {
+    @include primary.block($display: $display, $width: $width, $text-align: $test-align);
+    @include states.bgc-h_($background-color-hover: $background-color-hover, $background-color: $background-color);
+}

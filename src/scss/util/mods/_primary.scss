@@ -1,0 +1,47 @@
+// redondea los bordes de un elemento
+@mixin rounded_( $border, $border-radius) {
+    @if $border != false {
+        border: $border;
+    }
+    @if $border-radius != false {
+        border-radius: $border-radius;
+    }
+}
+// agrega sombras a un elemento.
+@mixin shadow_($box-shadow) {
+    @if $box-shadow != false {
+        box-shadow: $box-shadow;
+    }
+    
+}
+@mixin shadow-animated_( $box-shadow-active, $transform , $box-shadow) {
+    @include shadow_($box-shadow: $box-shadow);
+    @if $box-shadow-active != false or $transform != false {
+    &:active {
+        @if $box-shadow-active != false {
+            box-shadow: $box-shadow-active;
+        }
+        @if $transform != false {
+            transform: $transform;
+        }
+        }
+    }
+}
+
+//Expando el elemento a todo lo ancho.
+$block_display: block;
+$block_width: 100%;
+$block_text-align: center;
+
+// Crea un elemento que ocupa todo el ancho disponible.
+@mixin block_($display, $width, $text-align) {
+    @if $display != false {
+        display: $display;
+    }
+    @if $width != false {
+        width: $width;
+    }
+    @if $text-align != false {
+        text-align: $text-align;
+    }
+}

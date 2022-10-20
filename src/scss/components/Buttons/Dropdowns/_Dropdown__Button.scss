@@ -1,0 +1,44 @@
+@use './../../../util';
+@use 'sass:map';
+
+// Dropdown__Button_Color_Hover_($font-size,$border,$outline,$color,$padding,$background-color,$font-family,$margin,$background-color-hover,$color-hover);
+// Dropdown__Button_Color_Hover_($font-size: $font-size,$border: $border,$outline: $outline,$color: $color,$padding: $padding,$background-color: $background-color,$font-family: $font-family,$margin: $margin,$background-color-hover: $background-color-hover,$color-hover: $color-hover);
+
+$font-size_Dropdown__Button_Color_Hover: 16px;
+$border_Dropdown__Button_Color_Hover: none;
+$outline_Dropdown__Button_Color_Hover: none;
+$color_Dropdown__Button_Color_Hover: white;
+$padding_Dropdown__Button_Color_Hover: 14px 16px;
+$background-color_Dropdown__Button_Color_Hover: inherit;
+$font-family_Dropdown__Button_Color_Hover: inherit;
+$margin_Dropdown__Button_Color_Hover: 0;
+$background-color-hover_Dropdown__Button_Color_Hover: red;
+$color-hover_Dropdown__Button_Color_hover: white;
+
+@mixin Dropdown__Button_Color_Hover_(
+    $font-size: $font-size_Dropdown__Button_Color_Hover,
+    $border: $border_Dropdown__Button_Color_Hover,
+    $outline: $outline_Dropdown__Button_Color_Hover,
+    $color: $color_Dropdown__Button_Color_Hover,
+    $padding: $padding_Dropdown__Button_Color_Hover,
+    $background-color: $background-color_Dropdown__Button_Color_Hover,
+    $font-family: $font-family_Dropdown__Button_Color_Hover,
+    $margin: $margin_Dropdown__Button_Color_Hover,
+    $background-color-hover: $background-color-hover_Dropdown__Button_Color_Hover,
+    $color-hover: $color-hover_Dropdown__Button_Color_hover
+    ) {
+    font-size: $font-size;
+    border: $border;
+    outline: $outline;
+    color: $color;
+    padding: $padding;
+    background-color: $background-color;
+    font-family: $font-family;
+    margin: $margin;
+    @include util.bgc-h_($background-color: false, $background-color-hover: $background-color-hover);
+    @include util.c-h_($color: false, $color-hover: $color-hover);
+}
+
+.Dropdown__Button_Color_Hover {
+    @include Dropdown__Button_Color_Hover_; 
+}

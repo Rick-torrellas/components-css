@@ -1,0 +1,50 @@
+@use './../functions' as functions;
+
+// TODO crear una funcion que se pases un numero de propiedades, y un estado, asi te ahorras el escribir tanto codigo.
+
+//o-h_($opacity, $opacity-hover);
+//o-h_($opacity:$opacity, $opacity-hover:$opacity-hover);
+
+@mixin o-h_($opacity, $opacity-hover) {
+    @include functions.check_prop('opacity',$opacity);
+    &:hover {
+        @include functions.check_prop('opacity',$opacity-hover);
+    }
+}
+
+// background color hover: cambiar el color de fondo con hover
+@mixin bgc-h_( $background-color, $background-color-hover) {
+    @if $background-color != false {
+        background-color: $background-color;
+    }
+    @if $background-color-hover != false { 
+    &:hover {
+        background-color: $background-color-hover;
+    }
+  }
+}
+
+// cambia el color de fondo cuando esta activo el elemento
+@mixin bgc-a_( $background-color,$background-color-active) {
+    @if $background-color != false {
+        background-color: $background-color;
+    }
+    @if $background-color-active != false { 
+    &:active {
+        background-color: $background-color-active;
+    }
+  }
+}
+
+// cambia el color del texto en hover
+@mixin c-h_($color,$color-hover) {
+    @if $color != false {
+        color: $color;
+    }
+    @if $color-hover != false {
+        &:hover {
+            color: $color-hover;
+        }
+    }
+}
+

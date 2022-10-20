@@ -1,0 +1,73 @@
+@use './../../util';
+@use 'Button' as base;
+@use 'sass:map';
+
+// Button_Block_($border,$color,$padding,$font-size,$cursor,$width,$background-color,$text-align);
+
+// Button_Block_($border: $border,$color: $color,$padding: $padding,$font-size: $font-size,$cursor: $cursor,$width: $width,$background-color: $background-color,$text-align: $text-align);
+
+$Button_Block_border: none;
+$Button_Block_color: white;
+$Button_Block_padding: 14px 28px;
+$Button_Block_font-size: 16px;
+$Button_Block_cursor: pointer;
+$Button_Block_display: block;
+$Button_Block_width: 100%;
+$Button_Block_background-color: #04AA6D;
+$Button_Block_text-align: center;
+
+@mixin Button_Block_(
+    $border: $Button_Block_border, 
+    $color: $Button_Block_color, 
+    $padding: $Button_Block_padding, 
+    $font-size: $Button_Block_font-size, 
+    $cursor: $Button_Block_cursor, 
+    $display: $Button_Block_display, 
+    $width: $Button_Block_width, 
+    $background-color: $Button_Block_background-color, $text-align: $Button_Block_text-align
+    ) {
+    @include base.Button_($border: $border, $color: $color, $padding: $padding, $font-size: $font-size, $cursor: $cursor,$background-color: $background-color);
+    @include util.block_($display: $display, $width: $width, $text-align: $text-align);
+}
+
+.Button_Block {
+   @include Button_Block_;
+}
+
+// Button_Block_Color-h_($border,$color,$padding,$font-size,$cursor,$display,$width,$background-color,$text-align,$background-color-hover,$color-hover);
+
+// Button_Block_Color-h_($border: $border,$color: $color,$padding: $padding,$font-size: $font-size,$cursor: $cursor,$display: $display,$width: $width,$background-color: $background-color,$text-align: $text-align,$background-color-hover: $background-color-hover,$color-hover: $color-hover);
+
+$Button_Block_Color-h_border: none;
+$Button_Block_Color-h_color: white;
+$Button_Block_Color-h_padding: 14px 28px;
+$Button_Block_Color-h_font-size: 16px;
+$Button_Block_Color-h_cursor: pointer;
+$Button_Block_Color-h_display: block;
+$Button_Block_Color-h_width: 100%;
+$Button_Block_Color-h_background-color: #04AA6D;
+$Button_Block_Color-h_text-align: center;
+$Button_Block_Color-h_background-color-hover: #ddd;
+$Button_Block_Color-h_color-hover: black;
+
+//TODO implementar el mod de bock background hover
+@mixin Button_Block_Color-h_(
+$border: $Button_Block_Color-h_border, 
+$color: $Button_Block_Color-h_color, 
+$padding: $Button_Block_Color-h_padding, 
+$font-size: $Button_Block_Color-h_font-size, 
+$cursor: $Button_Block_Color-h_cursor, 
+$display: $Button_Block_Color-h_display, 
+$width: $Button_Block_Color-h_width, 
+$background-color: $Button_Block_Color-h_background-color, 
+$text-align: $Button_Block_Color-h_text-align, $background-color-hover: $Button_Block_Color-h_background-color-hover,
+$color-hover: $Button_Block_Color-h_color-hover
+) {
+    @include Button_Block_($border: $border,$color: $color,$padding: $padding,$font-size: $font-size,$cursor: $cursor,$width: $width,$background-color: $background-color,$text-align: $text-align);
+    @include util.bgc-h_( $background-color-hover: $background-color-hover,$background-color: false);
+    @include util.c-h_($color-hover: $color-hover,$color: false);
+}
+
+.Button_Block_Color-h {
+    @include Button_Block_Color-h_;
+}

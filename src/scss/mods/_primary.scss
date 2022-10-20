@@ -1,0 +1,36 @@
+@use './../util';
+
+$rounded_border: none; 
+$rounded_border-radius: 15px;
+
+.rounded {
+    @include util.rounded_($border: $rounded_border, $border-radius: $rounded_border-radius);
+}
+
+$bg-color-hover_background-color: white;
+
+.bg-color-hover {
+    @include util.bg-color-hover_($background-color: $bg-color-hover_background-color);
+}
+
+$bg-color-active_background-color: white;
+
+.bg-color-active {
+    @include util.bg-color-active_($background-color: $bg-color-active_background-color);
+}
+
+$shadow_box-shadow: 0 9px #999;
+
+.shadow {
+    @include util.shadow_($box-shadow: $shadow_box-shadow);
+}
+
+$shadow_animated_background-color-hover: #3e8e41;
+$shadow_animated_background-color-active: #3e8e41;
+$shadow_animated_box-shadow-active: 0 5px #666;
+$shadow_animated_transform: translateY(4px);
+$shadow_animated_box-shadow: 0 7px gray;
+
+.shadow_animated {
+    @include util.shadow_animated_($background-color-hover: $shadow_animated_background-color-hover, $background-color-active: $shadow_animated_background-color-active, $box-shadow-active: $shadow_animated_box-shadow-active, $transform: $shadow_animated_transform , $box-shadow: $shadow_animated_box-shadow);
+}

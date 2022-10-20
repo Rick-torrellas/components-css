@@ -1,0 +1,136 @@
+@use './../../util';
+@use 'sass:map';
+
+// TODO: .Button_Shadow_Animated
+
+// TODO: .Button_bgch background color hover
+
+// Button_($border,$color,$padding,$font-size,$cursor,$background-color);
+// Button_($border: $border,$color: $color,$padding: $padding,$font-size: $font-size,$cursor: $cursor,$background-color: $background-color);
+
+// TODO Agregar la propiedad background-color, :S
+$Button_border: none;
+$Button_color: map.get(util.$RGB, "White");
+$Button_padding: 14px 28px;
+$Button_font-size: 16px;
+$Button_cursor: pointer;
+$Button_background-color: map.get(util.$RGB,"SeaGreen"); 
+
+@mixin Button_(
+    $border: $Button_border, 
+    $color: $Button_color, 
+    $padding: $Button_padding, 
+    $font-size: $Button_font-size, 
+    $cursor: $Button_cursor,
+    $background-color: $Button_background-color
+    ) {
+    border: $border;
+    color: $color;
+    padding: $padding;
+    font-size: $font-size;
+    cursor: $cursor;
+    background-color: $background-color; 
+}
+
+.Button {
+    @include Button_;
+}
+
+// Button_Animated_Color_Hover_($border,$color,$padding,$font-size,$cursor,$text-align,$margin,$transition,$background-color,$background-color-hover,$color-hover);
+// Button_Animated_Color_Hover_($border:$border,$color:$color,$padding:$padding,$font-size:$font-size,$cursor:$cursor,$text-align:$text-align,$margin:$margin,$transition:$transition,$background-color:$background-color,$background-color-hover:$background-color-hover,$color-hover:$color-hover);
+
+$border_Button_Animated_Color_Hover: none;
+$background-color_Button_Animated_Color_Hover: #ddd;
+$background-color-hover_Button_Animated_Color_Hover: #3e8e41;
+$color_Button_Animated_Color_Hover: black;
+$color-hover_Button_Animated_Color_Hover: white;
+$padding_Button_Animated_Color_Hover: 16px 32px;
+$font-size_Button_Animated_Color_Hover: 16px;
+$cursor_Button_Animated_Color_Hover: false;
+$text-align_Button_Animated_Color_Hover: center;
+$margin_Button_Animated_Color_Hover: 4px 2px;
+$transition_Button_Animated_Color_Hover: 0.3s;
+
+@mixin Button_Animated_Color_Hover_(
+    $border: $border_Button_Animated_Color_Hover,
+    $color: $color_Button_Animated_Color_Hover,
+    $padding: $padding_Button_Animated_Color_Hover,
+    $font-size: $font-size_Button_Animated_Color_Hover,
+    $cursor: $cursor_Button_Animated_Color_Hover,
+    $text-align: $text-align_Button_Animated_Color_Hover,
+    $margin: $margin_Button_Animated_Color_Hover,
+    $transition: $transition_Button_Animated_Color_Hover,
+    $background-color: $background-color_Button_Animated_Color_Hover,
+    $background-color-hover: $background-color-hover_Button_Animated_Color_Hover,
+    $color-hover: $color-hover_Button_Animated_Color_Hover
+    ) {
+    @include Button_($border: $border,$color: $color,$padding: $padding,$font-size: $font-size,$cursor: $cursor,$background-color: $background-color);
+    @include util.bgc-h_($background-color-hover: $background-color-hover,$background-color: false);
+    @include util.c-h_($color-hover: $color-hover,$color: false);
+    text-align: $text-align;
+    margin: $margin;
+    transition: $transition;
+
+}
+
+.Button_Animated_Color_Hover {
+    @include Button_Animated_Color_Hover_;
+}
+
+// @mixin Button_Animated_Opacity_Hover_($border,$color,$padding,$font-size,$cursor,$background-color,$text-align,$margin,$opacity,$transition,$opacity-hover);
+// @mixin Button_Animated_Opacity_Hover_($border: $border,$color: $color,$padding: $padding,$font-size: $font-size,$cursor: $cursor,$background-color: $background-color,$text-align: $text-align,$margin: $margin,$opacity: $opacity,$transition: $transition,$opacity-hover: $opacity-hover);
+
+$border_Button_Animated_Opacity_Hover: none;
+$color_Button_Animated_Opacity_Hover: white;
+$padding_Button_Animated_Opacity_Hover: 16px 32px;
+$font-size_Button_Animated_Opacity_Hover: 16px;
+$cursor_Button_Animated_Opacity_Hover: none;
+$background-color_Button_Animated_Opacity_Hover: #f4511e;
+$text-align_Button_Animated_Opacity_Hover: center;
+$margin_Button_Animated_Opacity_Hover: 4px 2px;
+$opacity_Button_Animated_Opacity_Hover: 0.6;
+$transition_Button_Animated_Opacity_Hover: 0.3s;
+$opacity-hover_Button_Animated_Opacity_Hover: 1;
+
+@mixin Button_Animated_Opacity_Hover_(
+    $border: $border_Button_Animated_Opacity_Hover,
+    $color: $color_Button_Animated_Opacity_Hover,
+    $padding: $padding_Button_Animated_Opacity_Hover,
+    $font-size: $font-size_Button_Animated_Opacity_Hover,
+    $cursor: $cursor_Button_Animated_Opacity_Hover,
+    $background-color: $background-color_Button_Animated_Opacity_Hover,
+    $text-align: $text-align_Button_Animated_Opacity_Hover,
+    $margin: $margin_Button_Animated_Opacity_Hover,
+    $opacity: $opacity_Button_Animated_Opacity_Hover,
+    $transition: $transition_Button_Animated_Opacity_Hover,
+    $opacity-hover: $opacity-hover_Button_Animated_Opacity_Hover
+) {
+    @include Button_($border: $border,$color: $color,$padding: $padding,$font-size: $font-size,$cursor: false,$background-color: $background-color);
+    transition: $transition;
+    @include util.o-h_($opacity:$opacity, $opacity-hover:$opacity-hover);
+    text-align: $text-align;
+    margin: $margin;
+}
+
+.Button_Animated_Opacity_Hover {
+    @include Button_Animated_Opacity_Hover_;
+}
+
+/* .Button_Shadow {
+    @include util.Button_Shadow_($border: $Button_Shadow_Animated_border, $color: $Button_Shadow_Animated_color, $padding: $Button_Shadow_Animated_padding, $font-size: $Button_Shadow_Animated_font-size, $cursor: $Button_Shadow_Animated_cursor, $box-shadow-active: $Button_Shadow_Animated_box-shadow-active, $box-shadow: $Button_Shadow_Animated_box-shadow, $background-color-hover: $Button_Shadow_Animated_background-color-hover, $background-color-active: $Button_Shadow_Animated_background-color-active, $transform: $Button_Shadow_Animated_background-color-transform);
+} */
+/* $Button_Shadow_Animated_box-shadow-active: 0 4px #666;
+$Button_Shadow_Animated_box-shadow: 0 7px gray;
+$Button_Shadow_Animated_border: none;
+$Button_Shadow_Animated_color: map.get(util.$RGB, "White");
+$Button_Shadow_Animated_padding: 14px 28px;
+$Button_Shadow_Animated_font-size: 16px;
+$Button_Shadow_Animated_cursor: pointer;
+$Button_Shadow_Animated_background-color-hover: #3e8e41;
+$Button_Shadow_Animated_background-color-active: #3e8e41;
+$Button_Shadow_Animated_background-color-transform: translateY(4px);
+
+@mixin Button_Shadow_Animated_Bgc_($border, $color, $padding, $font-size, $cursor, $box-shadow-active, $box-shadow,$background-color-hover, $background-color-active, $transform) {
+    @include Button_($border: $border, $color: $color, $padding: $padding, $font-size: $font-size, $cursor: $cursor);
+    @include mods.shadow_animated_bgc_($background-color-hover , $background-color-active, $box-shadow-active, $transform , $box-shadow);
+} */

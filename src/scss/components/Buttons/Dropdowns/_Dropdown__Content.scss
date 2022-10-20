@@ -1,0 +1,50 @@
+@use './../../../util';
+@use 'sass:map';
+
+// Dropdown__Content($display,$position,$background-color,$min-width,$z-index);
+// Dropdown__Content($display:$display,$position: $position,$background-color: $background-color,$min-width: $min-width,$z-index: $z-index);
+
+$display_Dropdown__Content: none;
+$position_Dropdown__Content: absolute;
+$background-color_Dropdown__Content: #f9f9f9;
+$min-width_Dropdown__Content: 160px;
+$z-index_Dropdown__Content: 1;
+
+@mixin Dropdown__Content_(
+    $display: $display_Dropdown__Content,
+    $position: $position_Dropdown__Content,
+    $background-color: $background-color_Dropdown__Content,
+    $min-width: $min-width_Dropdown__Content,
+    $z-index: $z-index_Dropdown__Content
+    ) {
+    display: $display;
+    position: $position;
+    background-color: $background-color;
+    min-width: $min-width;
+    z-index: $z-index;
+}
+
+.Dropdown__Content {
+    @include Dropdown__Content_;
+}
+
+// Dropdown__Content_Shadow_($display,$position,$background-color,$min-width,$z-index);
+// Dropdown__Content_Shadow_($display:$display,$position: $position,$background-color: $background-color,$min-width: $min-width,$z-index: $z-index);
+
+$display_Dropdown__Content_Shadow: none;
+$position_Dropdown__Content_Shadow: absolute;
+$background-color_Dropdown__Content_Shadow: #f9f9f9;
+$min-width_Dropdown__Content_Shadow: 160px;
+$z-index_Dropdown__Content_Shadow: 1;
+$box-shadow_Dropdown__Content_Shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+@mixin Dropdown__Content_Shadow_(
+    $display: $display_Dropdown__Content_Shadow,
+    $position: $position_Dropdown__Content_Shadow,
+    $background-color: $background-color_Dropdown__Content_Shadow,
+    $min-width: $min-width_Dropdown__Content_Shadow,
+    $z-index: $z-index_Dropdown__Content_Shadow,
+    $box-shadow: $box-shadow_Dropdown__Content_Shadow
+) {
+
+}
